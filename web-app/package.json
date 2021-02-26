@@ -59,12 +59,34 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": "bash -c tsc",
-    "*.{ts,tsx}": "eslint --fix --max-warnings=0",
-    "src/**/*{ts,tsx,js,jsx,mdx,md,json,css, html}": "prettier --write"
+    "*.{ts,tsx}": "bash -c tsc",
+    "*.{ts,tsx,js,jsx}": "eslint --fix --max-warnings=0",
+    "*.{ts,tsx,js,jsx,mdx,md,json,css, html}": "prettier --write"
   },
   "eslintIgnore": [
     "**/{__tests__,__mocks__}/**",
     "**/*.{test,spec,example}.{js,jsx,ts,tsx}"
-  ]
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.{test,spec,example}.{js,jsx,ts,tsx}",
+      "!src/**/{__tests__,__mocks__}/*",
+      "!src/*.{js,jsx,ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 90,
+        "branches": 80,
+        "functions": 90,
+        "lines": 90
+      }
+    }
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "jsxBracketSameLine": true,
+    "trailingComma": "all",
+    "arrowParens": "always"
+  }
 }

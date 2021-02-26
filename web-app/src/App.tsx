@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 
 const App : FunctionComponent = () => (
   <Button variant="contained" color="primary">
-    Hello World
+      Hello World
   </Button>
 );
 
